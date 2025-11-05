@@ -19,7 +19,16 @@ public class Stack {
     
     public Integer pop() {
         Integer item = last != null ? last.item : null;
-        this.last = last.previous;
+        this.last = last != null ? last.previous : null;
         return item;
+    }
+    
+    String printItems() {
+        if (this != last) {
+            return String.valueOf(last.item) +", " +
+            last.previous.printItems();
+        }
+        else return String.valueOf(item);
+        
     }
 }
